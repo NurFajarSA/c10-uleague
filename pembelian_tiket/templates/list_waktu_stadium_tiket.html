@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Waktu Stadium</title>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        List Waktu Stadium
+
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-8 py-4">
+    <table class="table table-zebra w-full border-2 border-primary-content rounded-md">
+        <thead>
+            <tr>
+                <th >List Waktu</th>
+                <th >Action</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+            
+                <td>
+        
+                </td>
+                <td>
+                    <a class="text-white font-regular py-2 px-4 rounded-md" style="background-color: #38404e;" href="{% url 'pembelian_tiket:list_pertandingan_tiket' %}">PESAN</a>
+                </td>
+            </tr>   
+        </tbody>
+        
+    </table>
+</div>
+
+
+
+{% endblock content %}
+

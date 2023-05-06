@@ -54,7 +54,7 @@
           <ul class="p-2 bg-base-100">
               <li><a>Dashboard</a></li>
               <li><a>Mengelola Tim</a></li>
-              <li><a>Peminjaman Stadium</a></li>
+              <li><a href="{% url 'peminjaman_stadium:peminjaman_stadium' %}">Peminjaman Stadium</a></li>
               <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
               <li><a href="{% url 'history_rapat:history_rapat' %}">History Rapat</a></li>
           </ul>
@@ -66,7 +66,7 @@
           </a>
           <ul class="p-2 bg-base-100">
             <li><a>Dashboard</a></li>
-            <li><a>Pembelian Tiket</a></li>
+            <li><a href="{% url 'pembelian_tiket:pilih_stadium_tiket' %}">Pembelian Tiket</a></li>
             <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
           </ul>
         </li>

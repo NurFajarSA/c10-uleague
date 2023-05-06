@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Pemesanan</title>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        List Pemesanan
+
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-8 py-4">
+    <table class="table table-zebra w-full border-2 border-primary-content rounded-md">
+        <thead>
+            <tr>
+                <th >Stadium</th>
+                <th >Waktu</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+            
+                <td>
+        
+                </td>
+                <td>
+        
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>
+
+<div class="flex justify-center p-16">
+    <a class="text-white font-regular py-2 px-4 rounded-md" style="background-color: #38404e;" href="{% url 'peminjaman_stadium:pilih_stadium' %}">PESAN</a>
+</div>
+
+{% endblock content %}
+

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'manage_pertandingan', # new
     'list_pertandingan', # new
     'history_rapat', # new
+    'peminjaman_stadium',
+    'pembelian_tiket'
 ]
 
 MIDDLEWARE = [
