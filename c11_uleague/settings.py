@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home', # new
     'manage_pertandingan', # new
     'list_pertandingan', # new
+    'history_rapat', # new
 ]
 
 MIDDLEWARE = [
