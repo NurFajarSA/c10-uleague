@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home', # new
     'manage_pertandingan', # new
+    'list_pertandingan', # new
 ]
 
 MIDDLEWARE = [
