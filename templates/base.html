@@ -40,7 +40,7 @@
           </li>
         </ul>
       </div>
-      <a class="btn btn-ghost normal-case text-xl">U-League</a>
+      <a class="btn btn-ghost normal-case text-xl" href="{% url 'example_app:home' %}">U-League</a>
     </div>
 
     <!-- Desktop -->
@@ -78,7 +78,7 @@
           <ul class="p-2 bg-base-100">
               <li><a>Dashboard</a></li>
               <li><a>Rapat</a></li>
-              <li><a>Manage Pertandingan</a></li>
+              <li><a href="{% url 'manage_pertandingan:manage_pertandingan' %}">Manage Pertandingan</a></li>
           </ul>
         </li>
       </ul>
