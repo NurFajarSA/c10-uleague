@@ -4,12 +4,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
-@login_required(login_url='/home/login/')
+@login_required(login_url='/login/')
 def home(request):
     return render(request, 'home.html')
 
+@csrf_exempt
 def register(request):
     form = UserCreationForm()
 
@@ -23,6 +25,7 @@ def register(request):
     context = {'form':form}
     return render(request, 'register.html', context)
 
+@csrf_exempt
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -36,6 +39,7 @@ def login_user(request):
     context = {}
     return render(request, 'login.html', context)
 
+@csrf_exempt
 def logout_user(request):
     logout(request)
     return redirect('home:login')
