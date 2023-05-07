@@ -7,9 +7,13 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
-@login_required(login_url='/login/')
+@login_required(login_url='/login_register/')
 def home(request):
     return render(request, 'home.html')
+
+@csrf_exempt
+def login_register(request):
+    return render(request, 'login_register.html')
 
 @csrf_exempt
 def register(request):
@@ -42,4 +46,4 @@ def login_user(request):
 @csrf_exempt
 def logout_user(request):
     logout(request)
-    return redirect('home:login')
+    return redirect('home:login_register')
