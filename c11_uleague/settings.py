@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home', # new
+    'home',
+    'dashboard',
+    'mulai_pertandingan',# new
 ]
 
 MIDDLEWARE = [
