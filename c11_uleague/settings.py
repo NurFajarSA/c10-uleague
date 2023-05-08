@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home', # new
+    'pengguna', #new
+    'mengelola_tim',
+    'mulai_rapat',
+    
 ]
 
 MIDDLEWARE = [

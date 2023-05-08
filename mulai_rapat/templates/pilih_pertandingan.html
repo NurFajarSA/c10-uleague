@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Mulai Rapat</title>
+
+{% endblock meta %}
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Pilih Pertandingan
+    </h1>
+</div>
+
+<div class="overflow-x-auto">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>Tim Bertanding</th>
+          <th>Stadium</th>
+          <th>Tanggal dan Waktu</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr>
+          <th>1</th>
+          <td>Kapibara vs Wasera</td>
+          <td>Stadium Gelora Bung Karno</td>
+          <td>5 Juli 2023, 07.00 - 09.00</td>
+          <td><button type="button" class="btn btn-secondary">Mulai Rapat</button> </td>
+        </tr>
+        <!-- row 2 -->
+        <tr class="hover">
+          <th>2</th>
+          <td>Yumuhu vs Asada</td>
+          <td>Stadium Gelora Bung Karno</td>
+          <td>7 Juli 2023, 07.00 - 09.00</td>
+          <td><button type="button" class="btn btn-secondary">Mulai Rapat</button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}
