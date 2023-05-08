@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'dashboard',
+    'user_dashboard',
     'mulai_pertandingan',# new
 ]
 
