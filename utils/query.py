@@ -7,10 +7,6 @@ MaybeError = Optional[Error]
 T = TypeVar("T")
 
 conn = psycopg2.connect(os.getenv("DATABASE_URL"))
-# conn = psycopg2.connect("dbname=uleague user=postgres host=localhost password=radityahnf"
-# )
-
-
 
 @overload
 def query(sql: str) -> tuple[list[tuple] | int, MaybeError]:
