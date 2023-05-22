@@ -10,7 +10,7 @@ from utils.query import query
 import uuid
 
 # Create your views here.
-@login_required(login_url='/login_register/')
+# @login_required(login_url='/login_register/')
 def home(request):
     role = request.COOKIES.get("role")
 
