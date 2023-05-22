@@ -16,8 +16,9 @@
 </head>
 
 <body class="bg-base-200 w-full min-h-screen ">
-  <div class="navbar bg-base-100 w-full">
-    <div class="navbar-start">
+  {% if request.path != '/login/' and request.path != '/login_register/'%}
+    <div class="navbar bg-base-100 w-full">
+      <div class="navbar-start">
 
     <!-- Mobile -->
       <div class="dropdown">
@@ -123,6 +124,7 @@
       {% else %}
       <a class="btn" href ="{% url 'home:logout' %}">Logout</a>
       {% endif %}
+      <a class="btn">Logout</a>
     </div>
     
   </div>
