@@ -3,7 +3,11 @@
 
 {% block meta %}
 <title>List Pertandingan</title>
-
+<style>
+  td, th{
+    text-align: center;
+  }
+</style>
 {% endblock meta %}
 
 {% block content %}
@@ -21,37 +25,39 @@
         </ul>
       </div>
 </div> -->
-<div class="overflow-x-auto px-8 py-4">
-    <table class="table table-zebra w-full border-2 border-primary-content rounded-md">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th>Tim Bertanding</th>
-          <th>Stadium</th>
-          <th>Tanggal dan Waktu</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- row 1 -->
-        <tr>
-          <td>Cy Ganderton</td>
-          <td>Quality Control Specialist</td>
-          <td>Blue</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <td>Hart Hagerty</td>
-          <td>Desktop Support Technician</td>
-          <td>Purple</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <td>Brice Swyre</td>
-          <td>Tax Accountant</td>
-          <td>Red</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="overflow-x-auto px-24 py-4 pb-8">
+  <div class="shadow-xl">
+    <div style="overflow-x: auto;">
+      <table class="table table-zebra w-full rounded-md" >
+        <!-- head -->
+        <thead>
+          <tr>
+            <th class="bg-base-300" >Tim Bertanding</th>
+            <th class="bg-base-300">Stadium</th>
+            <th class="bg-base-300">Tanggal dan Waktu</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          {% for data in info_pertandingan %}
+         
+          <tr>
+            <td> {{data.0}}</td>
+            <td>{{data.1}}</td>
+            <td>{{data.2}} - {{data.3}}</td>
+          </tr>
+          
+          {% endfor %}
+        </tbody>
+        <thead>
+          <tr>
+            <th class="bg-base-300" colspan="3"></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    
+  </div>
   </div>
 {% endblock content %}
 
