@@ -44,27 +44,17 @@ Stadium Tanggal dan Waktu Action -->
         </tr>
       </thead>
       <tbody>
+        {% for data in info_rapat %}
         <!-- row 1 -->
         <tr>
-          <td>A vs B</td>
-          <td>XYZ</td>
-          <td>Stadium GBK</td>
-          <td>5 Juli 2023, 07.00 - 09.00</td>
+          <td>{{data.0}}</td>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
+          <td>{{data.3}}-{{data.4}}</td>
           <td><button class="btn btn-primary btn-sm">Lihat Laporan Rapat</button></td>
         </tr>
-        <!-- row 2 -->
-        <tr>
-          <td>C vs D</td>
-          <td>XYZ</td>
-          <td>Stadium GBK</td>
-          <td>7 Juli 2023, 13.00 - 15.00</td>
-          <td><button class="btn btn-primary btn-sm">Lihat Laporan Rapat</button></td>
-        </tr>
-        <thead>
-          <tr>
-            <th class="bg-base-300" colspan="5"></th>
-          </tr>
-        </thead>
+     
+        {% endfor %}
       </tbody>
     </table>
   </div>

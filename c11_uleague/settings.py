@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
+import platform
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',
-    'list_pertandingan',
-    'history_rapat',
-    'manage_pertandingan',
-    'pembuatan_pertandingan', # new
+    'home', # new
+    'manage_pertandingan', # new
+    'list_pertandingan', # new
+    'history_rapat', # new
+    'peminjaman_stadium',
+    'pembelian_tiket',
+    'pembuatan_pertandingan',
 ]
 
 MIDDLEWARE = [
@@ -79,11 +84,19 @@ WSGI_APPLICATION = 'c11_uleague.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD": "bvZdVlZ3WGWRantHMz8R",
+        "HOST": "containers-us-west-144.railway.app",
+        "PORT": "7980",
     }
 }
+
+
+DATABASES["default"] = dj_database_url.config(conn_max_age=600)
+
 
 
 # Password validation

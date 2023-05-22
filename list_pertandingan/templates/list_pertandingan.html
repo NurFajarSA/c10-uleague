@@ -27,35 +27,37 @@
 </div> -->
 <div class="overflow-x-auto px-24 py-4 pb-8">
   <div class="shadow-xl">
-    <table class="table table-zebra w-full rounded-md">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th class="bg-base-300">Tim Bertanding</th>
-          <th class="bg-base-300">Stadium</th>
-          <th class="bg-base-300">Tanggal dan Waktu</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- row 1 -->
-        <tr>
-          <td>A VS B</td>
-          <td>Stadium GBK</td>
-          <td>5 Juli 2023, 07.00 - 09.00</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <td>C VS D</td>
-          <td>Stadium GBK</td>
-          <td>7 Juli 2023, 13.00 - 15.00</td>
-        </tr>
-      </tbody>
-      <thead>
-        <tr>
-          <th class="bg-base-300" colspan="3"></th>
-        </tr>
-      </thead>
-    </table>
+    <div style="overflow-x: auto;">
+      <table class="table table-zebra w-full rounded-md" >
+        <!-- head -->
+        <thead>
+          <tr>
+            <th class="bg-base-300" >Tim Bertanding</th>
+            <th class="bg-base-300">Stadium</th>
+            <th class="bg-base-300">Tanggal dan Waktu</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          {% for data in info_pertandingan %}
+         
+          <tr>
+            <td> {{data.0}}</td>
+            <td>{{data.1}}</td>
+            <td>{{data.2}} - {{data.3}}</td>
+          </tr>
+          
+          {% endfor %}
+        </tbody>
+        <thead>
+          <tr>
+            <th class="bg-base-300" colspan="3"></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    
   </div>
   </div>
 {% endblock content %}
+
