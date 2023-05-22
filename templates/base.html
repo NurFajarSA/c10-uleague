@@ -16,79 +16,80 @@
 </head>
 
 <body class="bg-base-200 w-full min-h-screen ">
-  {% if request.path != '/login/' and request.path != '/login_register/'%}
-    <div class="navbar bg-base-100 w-full">
-      <div class="navbar-start">
+  {% if request.path != '/login/' and request.path != '/login_register/' %}
+  <div class="navbar bg-base-100 w-full">
+    <div class="navbar-start">
 
-      <!-- Mobile -->
-        <div class="dropdown">
-          <label tabindex="0" class="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-          </label>
-          <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-            <li tabindex="0">
-              <a class="justify-between">
-                Manager
-                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-              </a>
-              <ul class="p-2 bg-base-100">
-                <li><a>Dashboard</a></li>
-                <li><a>Mengelola Tim</a></li>
-                <li><a>Peminjaman Stadium</a></li>
-                <li><a>List Pertandingan</a></li>
-                <li><a>History Rapat</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <a class="btn btn-ghost normal-case text-xl">U-League</a>
-      </div>
-
-      <!-- Desktop -->
-      <div class="navbar-center hidden lg:flex" style="z-index: 9999;">
-        <ul class="menu menu-horizontal px-1">
+    <!-- Mobile -->
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        </label>
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           <li tabindex="0">
-            <a>
+            <a class="justify-between">
               Manager
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-            </a>
-            <ul class="p-2 bg-base-100">
-                <li><a>Dashboard</a></li>
-                <li><a>Mengelola Tim</a></li>
-                <li><a>Peminjaman Stadium</a></li>
-                <li><a>List Pertandingan</a></li>
-                <li><a>History Rapat</a></li>
-            </ul>
-          </li>
-          <li tabindex="1">
-            <a>
-              Penonton
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
             </a>
             <ul class="p-2 bg-base-100">
               <li><a>Dashboard</a></li>
-              <li><a>Pembelian Tiket</a></li>
+              <li><a>Mengelola Tim</a></li>
+              <li><a>Peminjaman Stadium</a></li>
               <li><a>List Pertandingan</a></li>
-            </ul>
-          </li>
-          <li tabindex="2">
-            <a>
-              Panitia
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-            </a>
-            <ul class="p-2 bg-base-100">
-                <li><a>Dashboard</a></li>
-                <li><a>Rapat</a></li>
-                <li><a>Manage Pertandingan</a></li>
+              <li><a>History Rapat</a></li>
             </ul>
           </li>
         </ul>
       </div>
-
-      <div class="navbar-end">
-        <a class="btn" href="{% url 'home:logout' %}">Logout</a>
-      </div>
+      <a class="btn btn-ghost normal-case text-xl" href="{% url 'home:home' %}">U-League</a>
     </div>
+
+    <!-- Desktop -->
+    <div class="navbar-center hidden lg:flex" style="z-index: 9999;">
+      <ul class="menu menu-horizontal px-1">
+        <li tabindex="0">
+          <a>
+            Manager
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+          </a>
+          <ul class="p-2 bg-base-100">
+              <li><a>Dashboard</a></li>
+              <li><a>Mengelola Tim</a></li>
+              <li><a>Peminjaman Stadium</a></li>
+              <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
+              <li><a href="{% url 'history_rapat:history_rapat' %}">History Rapat</a></li>
+          </ul>
+        </li>
+        <li tabindex="1">
+          <a>
+            Penonton
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+          </a>
+          <ul class="p-2 bg-base-100">
+            <li><a>Dashboard</a></li>
+            <li><a>Pembelian Tiket</a></li>
+            <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
+          </ul>
+        </li>
+        <li tabindex="2">
+          <a>
+            Panitia
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+          </a>
+          <ul class="p-2 bg-base-100">
+              <li><a>Dashboard</a></li>
+              <li><a>Rapat</a></li>
+              <li><a href="{% url 'manage_pertandingan:manage_pertandingan' %}">Manage Pertandingan</a></li>
+              <li><a href="{% url 'pembuatan_pertandingan:pembuatan_pertandingan' %}">Pembuatan Pertandingan</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-end">
+      <a class="btn" href="{% url 'home:logout' %}">Logout</a>
+    </div>
+  </div>
   {% endif %}
 
   {% block content %}

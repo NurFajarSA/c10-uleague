@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home', # new
+    'home',
+    'list_pertandingan',
+    'history_rapat',
+    'manage_pertandingan',
+    'pembuatan_pertandingan', # new
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>History Rapat</title>
+<style>
+  td, th{
+    text-align: center;
+  }
+</style>
+
+{% endblock meta %}
+
+<!-- Rapat Tim Nama
+Pantitia
+Stadium Tanggal dan Waktu Action -->
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        History Rapat
+    </h1>
+</div>
+<!-- <div class="flex justify-center">
+    <div class="text-sm breadcrumbs">
+        <ul>
+          <li><a>Home</a></li> 
+          <li><a>Documents</a></li> 
+          <li>Add Document</li>
+        </ul>
+      </div>
+</div> -->
+<div class="overflow-x-auto px-24 py-4 pb-8">
+  <div class="shadow-xl">
+    <table class="table table-zebra w-full rounded-lg">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th class="bg-base-300">Rapat Tim</th>
+          <th class="bg-base-300">Nama Panitia</th>
+          <th class="bg-base-300">Stadium</th>
+          <th class="bg-base-300">Tanggal dan Waktu</th>
+          <th class="bg-base-300">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr>
+          <td>A vs B</td>
+          <td>XYZ</td>
+          <td>Stadium GBK</td>
+          <td>5 Juli 2023, 07.00 - 09.00</td>
+          <td><button class="btn btn-primary btn-sm">Lihat Laporan Rapat</button></td>
+        </tr>
+        <!-- row 2 -->
+        <tr>
+          <td>C vs D</td>
+          <td>XYZ</td>
+          <td>Stadium GBK</td>
+          <td>7 Juli 2023, 13.00 - 15.00</td>
+          <td><button class="btn btn-primary btn-sm">Lihat Laporan Rapat</button></td>
+        </tr>
+        <thead>
+          <tr>
+            <th class="bg-base-300" colspan="5"></th>
+          </tr>
+        </thead>
+      </tbody>
+    </table>
+  </div>
+  </div>
+{% endblock content %}
