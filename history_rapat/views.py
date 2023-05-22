@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+
 from utils.query import query
 import datetime
 import re
@@ -61,6 +62,7 @@ def history_rapat(request):
     context = {
         "info_rapat": info_rapat,
         "role": role
+
     }
 
     print(info_rapat)

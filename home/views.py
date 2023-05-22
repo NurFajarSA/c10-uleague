@@ -10,8 +10,6 @@ from utils.query import query
 import uuid
 
 # Create your views here.
-
-
 def home(request):
     role = request.COOKIES.get("role")
 
@@ -19,6 +17,7 @@ def home(request):
         'role': role
     }
     return render(request, 'home.html', context)
+
 
 @csrf_exempt
 def login_register(request):
@@ -189,3 +188,4 @@ def logout_user(request):
     for cookie in request.COOKIES:
         response.delete_cookie(cookie)
     return response
+
