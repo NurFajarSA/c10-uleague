@@ -26,43 +26,19 @@
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           {% if role == 'MANAJER' %}
-          <li tabindex="0">
-            <a class="justify-between">
-              Manager
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-            </a>
-            <ul class="p-2 bg-base-100">
-              <li><a href="{% url 'home:home' %}">Dashboard</a></li>
-              <li><a>Mengelola Tim</a></li>
-              <li><a href="{% url 'peminjaman_stadium:peminjaman_stadium' %}">Peminjaman Stadium</a></li>
-              <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
-              <li><a href="{% url 'history_rapat:history_rapat' %}">History Rapat</a></li>
-          </ul>
-          </li>
+          <li><a href="{% url 'home:home' %}">Dashboard</a></li>
+          <li><a>Mengelola Tim</a></li>
+          <li><a href="{% url 'peminjaman_stadium:peminjaman_stadium' %}">Peminjaman Stadium</a></li>
+          <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
+          <li><a href="{% url 'history_rapat:history_rapat' %}">History Rapat</a></li>
           {% elif role == 'PENONTON' %}
-          <li tabindex="1">
-            <a class="justify-between">
-              Penonton
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-            </a>
-            <ul class="p-2 bg-base-100">
-              <li><a  href="{% url 'home:home' %}">Dashboard</a></li>
-              <li><a href="{% url 'pembelian_tiket:pilih_stadium_tiket' %}">Pembelian Tiket</a></li>
-              <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
-            </ul>
-          </li>
+          <li><a  href="{% url 'home:home' %}">Dashboard</a></li>
+          <li><a href="{% url 'pembelian_tiket:pilih_stadium_tiket' %}">Pembelian Tiket</a></li>
+          <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
           {% elif role == 'PANITIA' %}
-          <li tabindex="2">
-            <a class="justify-between">
-              Panitia
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-            </a>
-            <ul class="p-2 bg-base-100">
-              <li><a href="{% url 'home:home' %} ">Dashboard</a></li>
-              <li><a href="{% url 'mulai_rapat:pilih_pertandingan' %}">Rapat</a></li>
-              <li><a href="{% url 'manage_pertandingan:manage_pertandingan' %}">Manage Pertandingan</a></li>
-          </ul>
-          </li>
+          <li><a href="{% url 'home:home' %} ">Dashboard</a></li>
+          <li><a href="{% url 'mulai_rapat:pilih_pertandingan' %}">Rapat</a></li>
+          <li><a href="{% url 'manage_pertandingan:manage_pertandingan' %}">Manage Pertandingan</a></li>
           {% endif %} 
         </ul>
       </div>
@@ -74,44 +50,21 @@
       <ul class="menu menu-horizontal px-1">
 
         {% if role == 'MANAJER' %}
-        <li tabindex="0">
-          <a>
-            Manager
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-          </a>
-          <ul class="p-2 bg-base-100">
-              <li><a href="{% url 'home:home' %}">Dashboard</a></li>
-              <li><a>Mengelola Tim</a></li>
-              <li><a href="{% url 'peminjaman_stadium:peminjaman_stadium' %}">Peminjaman Stadium</a></li>
-              <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
-              <li><a href="{% url 'history_rapat:history_rapat' %}">History Rapat</a></li>
-          </ul>
-        </li>
+        <li><a href="{% url 'home:home' %}">Dashboard</a></li>
+        <li><a>Mengelola Tim</a></li>
+        <li><a href="{% url 'peminjaman_stadium:peminjaman_stadium' %}">Peminjaman Stadium</a></li>
+        <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
+        <li><a href="{% url 'history_rapat:history_rapat' %}">History Rapat</a></li>
+
         {% elif role == 'PENONTON' %}
-        <li tabindex="1">
-          <a>
-            Penonton
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-          </a>
-          <ul class="p-2 bg-base-100">
-            <li><a  href="{% url 'home:home' %}">Dashboard</a></li>
-            <li><a href="{% url 'pembelian_tiket:pilih_stadium_tiket' %}">Pembelian Tiket</a></li>
-            <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
-          </ul>
-        </li>
+        <li><a  href="{% url 'home:home' %}">Dashboard</a></li>
+        <li><a href="{% url 'pembelian_tiket:pilih_stadium_tiket' %}">Pembelian Tiket</a></li>
+        <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
 
         {% elif role == 'PANITIA' %}
-        <li tabindex="2">
-          <a>
-            Panitia
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-          </a>
-          <ul class="p-2 bg-base-100">
-              <li><a href="{% url 'home:home' %} ">Dashboard</a></li>
-              <li><a href="{% url 'mulai_rapat:pilih_pertandingan' %}">Rapat</a></li>
-              <li><a href="{% url 'manage_pertandingan:manage_pertandingan' %}">Manage Pertandingan</a></li>
-          </ul>
-        </li>
+        <li><a href="{% url 'home:home' %} ">Dashboard</a></li>
+        <li><a href="{% url 'mulai_rapat:pilih_pertandingan' %}">Rapat</a></li>
+        <li><a href="{% url 'manage_pertandingan:manage_pertandingan' %}">Manage Pertandingan</a></li>
         {% endif %} 
       </ul>
     </div>
