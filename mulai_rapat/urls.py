@@ -4,6 +4,6 @@ app_name = 'mulai_rapat'
 
 urlpatterns = [
     path('', pilih_pertandingan, name='pilih_pertandingan'),
-    path('rapat_pertandingan', rapat_pertandingan, name='rapat_pertandingan'),
+    path('rapat_pertandingan/<uuid:id>', rapat_pertandingan, name='rapat_pertandingan'),
 
 ]
