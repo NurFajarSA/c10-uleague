@@ -3,7 +3,11 @@
 
 {% block meta %}
 <title>List Pemesanan</title>
-
+<style>
+  td, th{
+    text-align: center;
+  }
+</style>
 {% endblock meta %}
 
 {% block content %}
@@ -22,18 +26,20 @@
           <!-- head -->
           <thead>
             <tr>
-                <th class="bg-base-300">Stadium</th>
+              <th class="bg-base-300">Stadium</th>
               <th class="bg-base-300" >Waktu</th>
+              <th class="bg-base-300" >Action</th>
             </tr>
           </thead>
     
           <tbody>
-            {% if list_stadium|length != 0 %}
-                {% for data in list_stadium %}
+            {% if list_peminjaman|length != 0 %}
+                {% for data in list_peminjaman %}
             
                 <tr>
+                <td>{{data.0}}</td>
                 <td>{{data.1}}</td>
-                <td>{{data.2}}</td>
+                <td><button class="btn btn-primary" value="{{data.0}}|{{data.1}}" id="btn-update">Update</button></td>
                 </tr>
                 
                 {% endfor %}
@@ -53,11 +59,61 @@
       </div>
       
     </div>
+
+    {% if messages %}
+   <ul class="msg py-4">
+     {% for message in messages %}
+        {% if message.tags == 'success' %}
+        <div class="alert alert-success shadow-lg">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>{{message}}</span>
+            </div>
+            <div class="flex-none">
+              <button class="btn btn-sm btn-circle" id="cancel">✕</button>
+            </div>
+        </div>
+        {% elif message.tags == 'error' %}
+        <div class="alert alert-error shadow-lg">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{message}}</span>
+                </div>
+                <div class="flex-none">
+                  <button class="btn btn-sm btn-circle" id="cancel">✕</button>
+                </div>
+            </div>
+        {% endif %}
+      {% endfor %}
+    </ul>
+{% endif %}
+
     <div class="flex justify-center p-16 space-x-4">
         <a href="{% url 'peminjaman_stadium:pilih_stadium' %}"><button class="btn btn-primary">Pesan</button></a>
     </div> 
     </div>
-      
+
+<script>
+  const cancel = document.getElementById('cancel');
+  cancel.addEventListener('click', () => {
+    const alert = document.querySelector('.alert');
+    alert.classList.add('hidden');
+  });
+
+  $(document).ready(function(){
+        $("#btn-update").click(function(){
+            const data = document.getElementById('btn-update');
+            $.ajax({
+                type: "POST",
+                url: "{% url 'peminjaman_stadium:peminjaman_stadium' %}",
+                data: {'data':data.value},
+                success: function(){
+                    window.location.href = "{% url 'peminjaman_stadium:update_peminjaman' %}";
+                }
+            });
+        });
+      });
+</script>
 
 {% endblock content %}
 
