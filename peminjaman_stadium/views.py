@@ -73,6 +73,7 @@ def pilih_stadium(request):
             return response
     return render(request, 'pilih_stadium.html', context)
 
+@csrf_exempt
 def update_peminjaman(request):
     role = request.COOKIES.get('role')
     nama_stadium_update = request.COOKIES.get('nama_stadium_update')
@@ -84,7 +85,11 @@ def update_peminjaman(request):
         return redirect('home:home')
     
     if request.method == 'POST':
-        id_stadium = request.POST.get('id_stadium')
+        response = redirect('peminjaman_stadium:peminjaman_stadium')
+        date = request.POST.get('date')
+        update_peminjaman_obj, err= query(f"update peminjaman set start_datetime = '{date} 00:00:00', end_datetime = '{date} 23:59:59' where id_manajer = '{request.COOKIES.get('userId')}' and id_stadium = (select id_stadium from stadium where nama = '{nama_stadium_update}') and start_datetime = '{date_update}'")
+        response.set_cookie('insert_peminjaman', update_peminjaman_obj)
+        return response
     
     context = {
         "role": role,
