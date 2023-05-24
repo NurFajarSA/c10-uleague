@@ -15,32 +15,49 @@
     </h1>
 </div>
 
-<div class="overflow-x-auto px-8 py-4">
-    <table class="table table-zebra w-full border-2 border-primary-content rounded-md">
-        <thead>
+<div class="overflow-x-auto px-24 py-4 pb-8">
+    <div class="shadow-xl">
+      <div style="overflow-x: auto;">
+        <table class="table table-zebra w-full rounded-md" >
+          <!-- head -->
+          <thead>
             <tr>
-                <th >Stadium</th>
-                <th >Waktu</th>
-              </tr>
-        </thead>
-        <tbody>
-            <tr>
-            
-                <td>
-        
-                </td>
-                <td>
-        
-                </td>
+                <th class="bg-base-300">Stadium</th>
+              <th class="bg-base-300" >Waktu</th>
             </tr>
-        </tbody>
-        
-    </table>
-</div>
+          </thead>
+    
+          <tbody>
+            {% if list_stadium|length != 0 %}
+                {% for data in list_stadium %}
+            
+                <tr>
+                <td>{{data.1}}</td>
+                <td>{{data.2}}</td>
+                </tr>
+                
+                {% endfor %}
+            {% else %}
+                <tr>
+                <td colspan="4" class="text-center">Anda belum pernah meminjam stadium</td>
+                </tr>
+            {% endif %}
 
-<div class="flex justify-center p-16">
-    <a class="text-white font-regular py-2 px-4 rounded-md" style="background-color: #38404e;" href="{% url 'peminjaman_stadium:pilih_stadium' %}">PESAN</a>
-</div>
+          </tbody>
+          <thead>
+            <tr>
+              <th class="bg-base-300" colspan="4"></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      
+    </div>
+    <div class="flex justify-center p-16 space-x-4">
+        <a href="{% url 'peminjaman_stadium:pilih_stadium' %}"><button class="btn btn-primary">Pesan</button></a>
+    </div> 
+    </div>
+      
 
 {% endblock content %}
 
