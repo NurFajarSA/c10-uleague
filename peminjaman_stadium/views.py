@@ -33,6 +33,7 @@ def peminjaman_stadium(request):
 
     # Update peminjaman
     if request.method == 'POST':
+        response = render(request, 'update_peminjaman.html', {}) 
         data = request.POST.get('data')
         data = data.split("|")
         nama_stadium_update = data[0]
@@ -88,7 +89,7 @@ def update_peminjaman(request):
     context = {
         "role": role,
         "nama_stadium_update": nama_stadium_update,
-        "date_update": date_update
+        "date_update": date_update,
     }
     
     return render(request, 'update_peminjaman.html', context)
