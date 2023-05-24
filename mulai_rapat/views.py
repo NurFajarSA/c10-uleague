@@ -1,6 +1,5 @@
 import re
 from django.contrib import messages
-from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from mulai_rapat.forms import IsiRapat
 from utils.query import query
@@ -92,7 +91,6 @@ def rapat_pertandingan(request, id):
             tim_bertanding, err = query(f"select distinct tm.nama_tim from tim_pertandingan tm, pertandingan p where tm.id_pertandingan = '{id}'  ")
             id_manajer_tim_a, err = query(f"select id_manajer from tim_manajer where nama_tim = '{tim_bertanding[0][0]}'")
             id_manajer_tim_b, err = query(f"select id_manajer from tim_manajer where nama_tim = '{tim_bertanding[1][0]}'")
-            print(f"insert into rapat values('{id}', '{datetime[0][0]}', '{id_panitia[0][0]}', '{id_manajer_tim_a[0][0]}', '{id_manajer_tim_b[0][0]}', '{isi_rapat[0]}')")
             query(f"insert into rapat values('{id}', '{datetime[0][0]}', '{id_panitia[0][0]}', '{id_manajer_tim_a[0][0]}', '{id_manajer_tim_b[0][0]}', '{isi_rapat[0]}')")
             messages.success(request, "Isi Rapat Berhasil dibuat!")
             return redirect('mulai_rapat:pilih_pertandingan')
