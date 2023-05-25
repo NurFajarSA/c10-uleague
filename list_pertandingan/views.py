@@ -63,4 +63,3 @@ def list_pertandingan(request):
     print(info_pertandingan[1])
    
     return render(request, 'list_pertandingan.html', context)
-

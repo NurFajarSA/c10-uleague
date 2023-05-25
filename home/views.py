@@ -10,6 +10,7 @@ from utils.query import query
 import uuid
 
 # Create your views here.
+# @login_required(login_url='/login_register/')
 def home(request):
     role = request.COOKIES.get("role")
 
@@ -177,14 +178,14 @@ def login_user(request):
                 'status': 'error',
                 'role': None,
             }
-            return render(request, 'login.html', context)
+            return render(request, 'login1.html', context)
 
         
     context = {}
-    return render(request, 'login.html', context)
+    return render(request, 'login1.html', context)
 
 def logout_user(request):
-    response = redirect(reverse('home:login_register'))
+    response = redirect(reverse('home:login'))
     for cookie in request.COOKIES:
         response.delete_cookie(cookie)
     return response
