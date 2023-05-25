@@ -25,6 +25,8 @@ def manajer_dashboard(request):
 
 def panitia_dashboard(request):
     role = request.COOKIES.get("role")
+    id_panitia = request.COOKIES.get("userId")
+    info_user, err = query(f"select concat (np.nama_depan, ' ', np.nama_belakang), np.nomor_hp, np.email, np.alamat, snp.status, jabatan from non_pemain np, status_non_pemain snp, panitia p where np.id = snp.id_non_pemain and p.id_panitia = np.id and np.id = '{id_panitia}';")
 
     if role == None:
         return redirect('home:login')
@@ -72,7 +74,8 @@ def panitia_dashboard(request):
     
     context = {
         "info_pertandingan": info_pertandingan,
-        "role": role
+        "role": role,
+        "info_user": info_user[0]
     }
     
     return render(request, 'panitia_dashboard.html', context)
@@ -80,6 +83,7 @@ def panitia_dashboard(request):
 def penonton_dashboard(request):
     role = request.COOKIES.get('role')
     id_penonton = request.COOKIES.get('userId')
+    info_user, err = query(f"select concat (np.nama_depan, ' ', np.nama_belakang), np.nomor_hp, np.email, np.alamat, snp.status from non_pemain np, status_non_pemain snp where np.id = snp.id_non_pemain and np.id = '{id_penonton}';")
 
     if role == None:
         return redirect('home:login')
@@ -130,7 +134,8 @@ def penonton_dashboard(request):
     
     context = {
         "info_pertandingan": info_pertandingan,
-        "role": role
+        "role": role,
+        "info_user": info_user[0]
     }
    
     return render(request, 'penonton_dashboard.html', context)
