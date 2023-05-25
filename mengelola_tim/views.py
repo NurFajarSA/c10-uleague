@@ -3,6 +3,7 @@ from utils.query import query
 import re
 
 # Create your views here.
+
 def form_daftar_tim(request):
     role = request.COOKIES.get('role')
 
@@ -11,11 +12,26 @@ def form_daftar_tim(request):
     if role not in ["MANAJER"]:
         return redirect('home:home')
     
-    context = {
-        "role": role
-    }
-        
-    return render(request, 'form_daftar_tim.html', context)
+    if request.method == "POST":
+        nama_tim = request.POST.get('nama_tim')
+        universitas = request.POST.get('universitas')
+
+        list_tim, err = query(f"SELECT * FROM TIM WHERE nama_tim = '{nama_tim}' AND universitas = '{universitas}';")
+        print(list_tim)
+        context = {
+            "role": role,
+        }
+    
+        return render(request, 'form_daftar_tim.html', context)
+    
+    else:
+        print("gajelas")
+
+        context = {
+            "role": role,
+        }
+    
+        return render(request, 'form_daftar_tim.html', context)
 
 def list_tim(request):
     role = request.COOKIES.get('role')
@@ -25,6 +41,7 @@ def list_tim(request):
     if role not in ["MANAJER"]:
         return redirect('home:home')
     
+
     context = {
         "role": role
     }
