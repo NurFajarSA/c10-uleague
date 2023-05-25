@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'history_rapat', # new
     'peminjaman_stadium',
     'pembelian_tiket',
+    'pembuatan_pertandingan',
     'mulai_rapat',
     'user_dashboard',
 ]
