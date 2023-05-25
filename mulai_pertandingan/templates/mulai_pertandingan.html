@@ -31,7 +31,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<!-- <tr>
 					<td>A</td>
 					<td>B</td>
                     <td><div class="container">
@@ -39,7 +39,13 @@
                         <br>
                          <button class="btn btn-active btn-link vertical-align">Masukkan Peristiwa Tim 2</button>
                       </div></td>
-				</tr>
+				</tr> -->
+				{% for data in info_tim %}
+        		<tr>
+          			<td>{{data.1}}</td>
+          			<td>{{data.2}}</td>
+          		<td><s href="{% url 'mulai_pertandingan:mulai_pertandingan' %}"><button type="button" class="btn btn-primary">Masukkan Peristiwa Tim 1</button></a></td>
+        		</tr>
                 <tr>
                     <td colspan="3">
 						<button class="btn btn-primary" type="submit">SUBMIT</button>

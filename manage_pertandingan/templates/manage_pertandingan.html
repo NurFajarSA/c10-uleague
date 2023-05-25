@@ -40,7 +40,7 @@
         <!-- head -->
         <thead>
           <tr>
-            <th class="bg-base-300">Group</th>
+            <!-- <th class="bg-base-300">Group</th> -->
             <th class="bg-base-300">Tim</th>
             <th class="bg-base-300">Waktu</th>
             <th class="bg-base-300">Pemenang</th>
@@ -48,7 +48,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- row 1 -->
+          <!-- row 1
           <tr>
             <th rowspan="2">A</th>
             <td>A VS B</td>
@@ -60,7 +60,7 @@
               <button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 2</button>
             </td>
           </tr>
-          <!-- row 2 -->
+          row 2
           <tr>
             <td>C VS D</td>
             <td>29 April 2023, 13:00</td>
@@ -71,7 +71,7 @@
               <button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 2</button>
             </td>
           </tr>
-          <!-- row 3 -->
+          row 3
           <tr>
             <th rowspan="2">B</th>
             <td>E VS F</td>
@@ -80,15 +80,25 @@
             <td><button class="btn btn-primary btn-sm">Mulai</button>
             </td>
           </tr>
-          <!-- row 4 -->
+          row 4
           <tr>
             <td>G VS H</td>
             <td>10 May 2023, 12:00</td>
             <td>-</td>
             <td><button class="btn btn-primary btn-sm" disabled="disabled">Belum dimulai</button>
             </td>
-          </tr>
+          </tr> -->
+          
         </tbody>
+
+        {% for data in info_pertandingan %}
+        <tr>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
+          <td>{{data.3}}</td>
+          <td><s href="{% url 'manage_pertandingan:manage_pertandingan' %}"><button type="button" class="btn btn-primary">Lihat Peristiwa Tim 1</button></a></td>
+
+        </tr>
         <thead>
           <td colspan="5" class="bg-base-300"><button class="btn btn-primary btn-wide btn-sm">Finish</button></th>
       </thead>
@@ -100,7 +110,7 @@
         <!-- head -->
         <thead>
           <tr>
-            <th class="bg-base-300">Group</th>
+           <!--  <th class="bg-base-300">Group</th> -->
             <th class="bg-base-300">Tim</th>
             <th class="bg-base-300">Waktu</th>
             <th class="bg-base-300">Pemenang</th>
@@ -108,7 +118,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- row 1 -->
+          <!-- row 1
           <tr>
             <th rowspan="2">A</th>
             <td>A VS B</td>
@@ -118,7 +128,7 @@
               <button class="btn btn-primary btn-sm">Update</button>
             </td>
           </tr>
-          <!-- row 2 -->
+          row 2
           <tr>
             <td>C VS D</td>
             <td>29 April 2023, 13:00</td>
@@ -127,7 +137,7 @@
               <button class="btn btn-primary btn-sm">Update</button>
             </td>
           </tr>
-          <!-- row 3 -->
+          row 3
           <tr>
             <th rowspan="2">B</th>
             <td>E VS F</td>
@@ -136,13 +146,20 @@
             <td><button class="btn btn-primary btn-sm">Update</button>
             </td>
           </tr>
-          <!-- row 4 -->
+          row 4
           <tr>
             <td>G VS H</td>
             <td>10 May 2023, 12:00</td>
             <td>-</td>
             <td><button class="btn btn-primary btn-sm">Update</button>
             </td>
+          </tr> -->
+          {% for data in info_pertandingan %}
+          <tr>
+            <td>{{data.1}}</td>
+            <td>{{data.2}}</td>
+            <td>{{data.3}}</td>
+            <td><s href="{% url 'manage_pertandingan:manage_pertandingan' %}"><button type="button" class="btn btn-primary">Update</button></a></td>
           </tr>
         </tbody>
         <thead>
@@ -156,7 +173,7 @@
         <!-- head -->
         <thead>
           <tr>
-            <th class="bg-base-300">Group</th>
+            <!-- <th class="bg-base-300">Group</th> -->
             <th class="bg-base-300">Tim</th>
             <th class="bg-base-300">Waktu</th>
             <th class="bg-base-300">Pemenang</th>
@@ -164,7 +181,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- row 1 -->
+          <!-- row 1
           <tr>
             <th rowspan="2">A</th>
             <td>A VS B</td>
@@ -176,7 +193,7 @@
               <button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 2</button>
             </td>
           </tr>
-          <!-- row 2 -->
+          row 2
           <tr>
             <td>C VS D</td>
             <td>29 April 2023, 13:00</td>
@@ -187,7 +204,7 @@
               <button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 2</button>
             </td>
           </tr>
-          <!-- row 3 -->
+          row 3
           <tr>
             <th rowspan="2">B</th>
             <td>E VS F</td>
@@ -196,14 +213,21 @@
             <td><button class="btn btn-primary btn-sm">Mulai</button>
             </td>
           </tr>
-          <!-- row 4 -->
+          row 4
           <tr>
             <td>G VS H</td>
             <td>10 May 2023, 12:00</td>
             <td>-</td>
             <td><button class="btn btn-primary btn-sm" disabled="disabled">Belum dimulai</button>
             </td>
-          </tr>
+          </tr> -->
+          {% for data in info_pertandingan %}
+        <tr>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
+          <td>{{data.3}}</td>
+          <td><s href="{% url 'manage_pertandingan:manage_pertandingan' %}"><button type="button" class="btn btn-primary">Lihat Peristiwa Tim 1</button></a></td>
+        </tr>
         </tbody>
         <thead>
           <td colspan="5" class="bg-base-300"><button class="btn btn-primary btn-wide btn-sm">Finish</button></th>
@@ -225,13 +249,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <!-- <tr>
           <td>Nur</td>
           <td>Goal</td>
         </tr>
         <tr>
           <td>Fajar</td>
           <td>Goal</td>
+        </tr> -->
+        {% for data in info_pertandingan %}
+        <tr>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
         </tr>
       </tbody>
       <thead>
