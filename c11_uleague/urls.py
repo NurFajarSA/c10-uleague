@@ -28,4 +28,5 @@ urlpatterns = [
     path('pembelian_tiket/', include('pembelian_tiket.urls')),
     path('mulai_rapat/', include('mulai_rapat.urls')),
     path('mengelola_tim/', include('mengelola_tim.urls')),
+    path('user_dashboard/', include('user_dashboard.urls')),
 ]

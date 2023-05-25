@@ -38,9 +38,8 @@ def pembelian_tiket(request,id_pertandingan):
         
         print([jenis_tiket,pembayaran,id_penonton,id_pertandingan])
         
-        q4 = f"insert into pembelian_tiket(nomor_receipt,id_penonton, jenis_tiket, jenis_pembayaran, id_pertandingan) values ('{receipt_builder}','{id_penonton}', '{jenis_tiket}', '{pembayaran}', '{id_pertandingan}')"
-        ins_pembelian_tiket, err = query(q4)
-        print(q4)
+        ins_pembelian_tiket, err = query(f"insert into pembelian_tiket(nomor_receipt,id_penonton, jenis_tiket, jenis_pembayaran, id_pertandingan) values ('{receipt_builder}','{id_penonton}', '{jenis_tiket}', '{pembayaran}', '{id_pertandingan}')")
+       
         if err != None:
             e = str(err).split('\n')[0]
             print(e)

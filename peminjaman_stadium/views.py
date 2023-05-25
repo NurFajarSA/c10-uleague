@@ -20,8 +20,8 @@ def peminjaman_stadium(request):
         pass
     elif is_available == "1":
         messages.success(request, 'Stadium berhasil dipinjam')
-    elif is_available == "0":  
-        messages.error(request, 'Stadium tidak tersedia pada waktu tersebut')
+    else: 
+        messages.error(request, is_available)
 
     list_peminjaman, err = query(f"select s.nama, concat(p.start_datetime, ' - ', p.end_datetime) as waktu from peminjaman as p, stadium as s where p.id_stadium = s.id_stadium and p.id_manajer = '{id_manajer}'")
     context = {
@@ -40,8 +40,6 @@ def peminjaman_stadium(request):
         date_update = data[1]
         date_update = date_update.split(" - ")
         date_update = date_update[0]
-        print(nama_stadium_update)
-        print(date_update)
         response.set_cookie('nama_stadium_update', nama_stadium_update)
         response.set_cookie('date_update', date_update)
         return response
@@ -66,10 +64,11 @@ def pilih_stadium(request):
         id_stadium = request.POST.get('id_stadium')
         date = request.POST.get('date')
         if id_stadium != None and date != None:
-            insert_peminjaman, err = query(f"insert into peminjaman (id_stadium, id_manajer, start_datetime, end_datetime) values ('{id_stadium}', '{request.COOKIES.get('userId')}', '{date} 00:00:00', '{date} 23:59:59')")
             response = redirect('peminjaman_stadium:peminjaman_stadium')
-            response.set_cookie('insert_peminjaman', insert_peminjaman)
-            print(insert_peminjaman)
+            response.set_cookie('insert_peminjaman', '1')
+            insert_peminjaman, err = query(f"insert into peminjaman (id_stadium, id_manajer, start_datetime, end_datetime) values ('{id_stadium}', '{request.COOKIES.get('userId')}', '{date} 00:00:00', '{date} 23:59:59')")
+            err = str(err).split("\n")[0]
+            response.set_cookie('insert_peminjaman', err)
             return response
     return render(request, 'pilih_stadium.html', context)
 
@@ -87,8 +86,11 @@ def update_peminjaman(request):
     if request.method == 'POST':
         response = redirect('peminjaman_stadium:peminjaman_stadium')
         date = request.POST.get('date')
-        update_peminjaman_obj, err= query(f"update peminjaman set start_datetime = '{date} 00:00:00', end_datetime = '{date} 23:59:59' where id_manajer = '{request.COOKIES.get('userId')}' and id_stadium = (select id_stadium from stadium where nama = '{nama_stadium_update}') and start_datetime = '{date_update}'")
-        response.set_cookie('insert_peminjaman', update_peminjaman_obj)
+        response.set_cookie('insert_peminjaman', '1')
+        try: 
+            update_peminjaman_obj, err= query(f"update peminjaman set start_datetime = '{date} 00:00:00', end_datetime = '{date} 23:59:59' where id_manajer = '{request.COOKIES.get('userId')}' and id_stadium = (select id_stadium from stadium where nama = '{nama_stadium_update}') and start_datetime = '{date_update}'")
+        except Exception as e:
+            response.set_cookie('insert_peminjaman', e)
         return response
     
     context = {

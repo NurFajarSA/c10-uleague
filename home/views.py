@@ -42,17 +42,29 @@ def register_manajer(request):
 
         print([username, password, nama_depan, nama_belakang, nomor_hp, email, alamat, role, id])
         
-        try:
-            ins_user_system, err = query(f"insert into user_system(username,password) values ('{username}', '{password}')")
-            ins_non_pemain, err = query(f"insert into non_pemain(id,nama_depan,nama_belakang,nomor_hp,email,alamat) values ('{id}', '{nama_depan}', '{nama_belakang}','{nomor_hp}', '{email}','{alamat}')")
-            ins_status_non_pemain, err = query(f"insert into status_non_pemain(id_non_pemain,status) values ('{id}', '{role}')")
-            ins_manajer, err = query(f"insert into manajer(id_manajer ,username) values ('{id}', '{username}')")
         
-            messages.success(request, "Berhasil mendaftar sebagai manajer!")
-            return redirect("home:login")
+        ins_user_system, err1 = query(f"insert into user_system(username,password) values ('{username}', '{password}')")
+        if err1 != None:
+            e = str(err1).split('\n')[0]
+            print(e)
+            context = {
+                "role": role,
+                "messages": e,
+            }
+            return render(request, 'register_manajer.html', context)
+
+        
+        ins_non_pemain, err = query(f"insert into non_pemain(id,nama_depan,nama_belakang,nomor_hp,email,alamat) values ('{id}', '{nama_depan}', '{nama_belakang}','{nomor_hp}', '{email}','{alamat}')")
+        ins_status_non_pemain, err = query(f"insert into status_non_pemain(id_non_pemain,status) values ('{id}', '{role}')")
+        ins_manajer, err = query(f"insert into manajer(id_manajer ,username) values ('{id}', '{username}')")
+
+        
+       
+
+        messages.success(request, "Berhasil mendaftar sebagai manajer!")
+        return redirect("home:login")
             
-        except Exception as e:
-            messages.error(request, e)
+        
 
     return render(request, "register_manajer.html")
 
