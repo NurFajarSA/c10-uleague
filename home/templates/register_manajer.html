@@ -42,7 +42,7 @@
             <label for="alamat">Alamat:</label>
             <input type="text" name="alamat" id="alamat" placeholder="Isi alamat" required
                 class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
-            
+
 
             <label for="role">Status:</label>
             <div class="col-span-2">
@@ -69,6 +69,13 @@
             </div>
 
             <br>
+            {% if messages %}
+            <div class="text-red-500 mt-4">
+
+                <p>{{ messages }}</p>
+
+            </div>
+            {% endif %}
             <div class="col-span-3 flex justify-center">
                 <input class="text-white font-regular py-2 px-4 rounded-md text-center" type="submit" value="DAFTAR"
                     style="background-color: #38404e;" />
@@ -81,10 +88,10 @@
             Sudah mempunyai akun?
             <a href="{% url 'home:login' %}" class="font-bold text-green underline hover:no-underline">Login</a>
         </p>
-        {% if messages %} {% for message in messages %}
-        <div class="mt-2 text-{{ message.tags }} text-sm text-center">{{ message }}</div>
-        {% endfor %} {% endif %}
+
+
     </form>
+
 
 </div>
 
