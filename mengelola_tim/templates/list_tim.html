@@ -113,11 +113,11 @@
       </tbody>
     </table>
   </div>
-<div class="flex justify-center p-10 space-x-4">
-    <button type="button" class="btn btn-secondary">Pemain</button>
+  <div class="flex justify-center p-10 space-x-4">
+    <button type="button" class="btn btn-secondary"><a href="{% url 'mengelola_tim:daftar_pemain' %}">Pemain</a></button>
 </div>
 <div class="flex justify-center p-5 space-x-4">
-    <button type="button" class="btn btn-secondary">Pelatih</button>
+    <button type="button" class="btn btn-secondary"><a href="{% url 'mengelola_tim:daftar_pelatih' %}">Pelatih</a></button>
 </div>
 
 {% endblock content %}

@@ -27,7 +27,7 @@
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           {% if role == 'MANAJER' %}
           <li><a href="{% url 'home:home' %}">Dashboard</a></li>
-          <li><a>Mengelola Tim</a></li>
+          <li><a href="{% url 'mengelola_tim:form_daftar_tim' %}">Mengelola Tim</a></li>
           <li><a href="{% url 'peminjaman_stadium:peminjaman_stadium' %}">Peminjaman Stadium</a></li>
           <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
           <li><a href="{% url 'history_rapat:history_rapat' %}">History Rapat</a></li>
@@ -51,7 +51,7 @@
 
         {% if role == 'MANAJER' %}
         <li><a href="{% url 'home:home' %}">Dashboard</a></li>
-        <li><a>Mengelola Tim</a></li>
+        <li><a href="{% url 'mengelola_tim:form_daftar_tim' %}">Mengelola Tim</a></li>
         <li><a href="{% url 'peminjaman_stadium:peminjaman_stadium' %}">Peminjaman Stadium</a></li>
         <li><a href="{% url 'list_pertandingan:list_pertandingan' %}">List Pertandingan</a></li>
         <li><a href="{% url 'history_rapat:history_rapat' %}">History Rapat</a></li>
