@@ -68,4 +68,3 @@ def history_rapat(request):
     print(info_rapat)
    
     return render(request, 'history_rapat.html', context)
-

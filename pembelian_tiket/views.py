@@ -37,9 +37,22 @@ def pembelian_tiket(request,id_pertandingan):
                 receipt_builder += number[randint(0,9)]
         
         print([jenis_tiket,pembayaran,id_penonton,id_pertandingan])
+        
         q4 = f"insert into pembelian_tiket(nomor_receipt,id_penonton, jenis_tiket, jenis_pembayaran, id_pertandingan) values ('{receipt_builder}','{id_penonton}', '{jenis_tiket}', '{pembayaran}', '{id_pertandingan}')"
         ins_pembelian_tiket, err = query(q4)
         print(q4)
+        if err != None:
+            e = str(err).split('\n')[0]
+            print(e)
+            context = {
+                "role": role,
+                "messages": e,
+            }
+            return render(request, 'pembelian_tiket.html', context)
+
+       
+            
+        
 
       
         return redirect('home:home') 
@@ -118,8 +131,9 @@ def list_pertandingan_tiket(request,waktu,stadium):
 
     id_pertandingan, err = query(f"select id_pertandingan from pertandingan where start_datetime='{waktu}' and stadium=(select p.stadium from pertandingan p, stadium s where p.stadium = s.id_stadium and s.nama = '{stadium}')")
     id_pertandingan = str(id_pertandingan[0][0])
-    
+    print(id_pertandingan)
     tim_bertanding, err = query(f"select distinct tm.nama_tim from tim_pertandingan tm, pertandingan p where tm.id_pertandingan = '{str(id_pertandingan)}'" )
+    print(tim_bertanding)
     tim_bertanding = [tim_bertanding[0][0], tim_bertanding[1][0]]
 
     context = {
