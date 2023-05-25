@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'peminjaman_stadium',
     'pembelian_tiket',
     'mulai_rapat',
-    
+    'user_dashboard',
 ]
 
 MIDDLEWARE = [
