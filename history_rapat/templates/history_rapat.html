@@ -8,12 +8,7 @@
     text-align: center;
   }
 </style>
-
 {% endblock meta %}
-
-<!-- Rapat Tim Nama
-Pantitia
-Stadium Tanggal dan Waktu Action -->
 
 {% block content %}
 <div class="flex justify-center p-16">
@@ -21,15 +16,7 @@ Stadium Tanggal dan Waktu Action -->
         History Rapat
     </h1>
 </div>
-<!-- <div class="flex justify-center">
-    <div class="text-sm breadcrumbs">
-        <ul>
-          <li><a>Home</a></li> 
-          <li><a>Documents</a></li> 
-          <li>Add Document</li>
-        </ul>
-      </div>
-</div> -->
+
 <div class="overflow-x-auto px-24 py-4 pb-8">
   <div class="shadow-xl">
     <table class="table table-zebra w-full rounded-lg">
@@ -51,12 +38,13 @@ Stadium Tanggal dan Waktu Action -->
           <td>{{data.1}}</td>
           <td>{{data.2}}</td>
           <td>{{data.3}}-{{data.4}}</td>
-          <td><button class="btn btn-primary btn-sm">Lihat Laporan Rapat</button></td>
+          <td>
+            <a href="{% url 'history_rapat:isi_rapat' data.5 %}" class="btn btn-primary btn-sm">Lihat Laporan Rapat</a>
+          </td>
         </tr>
-     
         {% endfor %}
       </tbody>
     </table>
   </div>
-  </div>
+</div>
 {% endblock content %}
