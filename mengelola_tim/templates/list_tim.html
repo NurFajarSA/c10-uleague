@@ -16,8 +16,9 @@
 <div class="flex justify-center p-16">
     <h4 class="text-4xl">
         Pemain
-    </h4>   
+    </h4> 
 </div>
+
 
 <div class="overflow-x-auto">
     <table class="table w-full">
@@ -99,6 +100,7 @@
           <td>pelatiha@gmail.com</td>
           <td>Bandung</td>
           <td>Teknik</td>
+
           <td><button type="button" class="btn btn-error">Delete</button> </td>
         </tr>
         <!-- row 2 -->
@@ -113,11 +115,11 @@
       </tbody>
     </table>
   </div>
-<div class="flex justify-center p-10 space-x-4">
-    <button type="button" class="btn btn-secondary">Pemain</button>
+  <div class="flex justify-center p-10 space-x-4">
+    <button type="button" class="btn btn-secondary"><a href="{% url 'mengelola_tim:daftar_pemain' %}">Pemain</a></button>
 </div>
 <div class="flex justify-center p-5 space-x-4">
-    <button type="button" class="btn btn-secondary">Pelatih</button>
+    <button type="button" class="btn btn-secondary"><a href="{% url 'mengelola_tim:daftar_pelatih' %}">Pelatih</a></button>
 </div>
 
 {% endblock content %}
