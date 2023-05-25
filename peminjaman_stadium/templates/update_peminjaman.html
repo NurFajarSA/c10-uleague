@@ -23,11 +23,8 @@
             <label class="label">
               <span class="label-text">Stadium</span>
             </label>
-            <select id="select-stadium" class="select select-bordered">
-              <option disabled selected>Pick one</option>
-              {% for data in list_stadium %}
-                <option value="{{data.0}}">{{data.1}}</option>
-            {% endfor %}
+            <select id="select-stadium" class="select select-bordered" disabled>
+              <option disabled selected>{{nama_stadium_update}}</option>
             </select>
           </div>
             <label class="label">
@@ -42,27 +39,22 @@
 </div>
 
 <script>
-    // ambil data dari select dan pindahkan ke url saat button di klik
-    // ganti page saat button di klik
     $(document).ready(function(){
         $("#btn-pilih").click(function(){
-            const stadium = document.getElementById('select-stadium');
             const date = document.getElementById('date');
-            if (stadium.value == "Pick one" || date.value == "") {
+            if (date.value == "") {
                 alert("Please fill the form");
             } else {
                 $.ajax({
                     type: "POST",
-                    url: "{% url 'peminjaman_stadium:pilih_stadium' %}",
-                    data: {'id_stadium':stadium.value, 'date':date.value},
+                    url: "{% url 'peminjaman_stadium:update_peminjaman' %}",
+                    data: {'date':date.value},
                     success: function(){
                         window.location.href = "{% url 'peminjaman_stadium:peminjaman_stadium' %}";
                     }
                 });
             }
         });
-
-        
     });
 
 

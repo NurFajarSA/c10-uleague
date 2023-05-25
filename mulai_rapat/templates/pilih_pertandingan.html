@@ -8,42 +8,53 @@
 
 {% block content %}
 <div class="flex justify-center p-16">
-    <h1 class="text-4xl font-bold">
-        Pilih Pertandingan
-    </h1>
+  <h1 class="text-4xl font-bold">
+      List Pertandingan
+  </h1>
 </div>
-
-<div class="overflow-x-auto">
-    <table class="table w-full">
+<!-- <div class="flex justify-center">
+  <div class="text-sm breadcrumbs">
+      <ul>
+        <li><a>Home</a></li> 
+        <li><a>Documents</a></li> 
+        <li>Add Document</li>
+      </ul>
+    </div>
+</div> -->
+<div class="overflow-x-auto px-24 py-4 pb-8">
+<div class="shadow-xl">
+  <div style="overflow-x: auto;">
+    <table class="table table-zebra w-full rounded-md" >
       <!-- head -->
       <thead>
         <tr>
-          <th></th>
-          <th>Tim Bertanding</th>
-          <th>Stadium</th>
-          <th>Tanggal dan Waktu</th>
-          <th>Action</th>
+          <th class="bg-base-300" >Tim Bertanding</th>
+          <th class="bg-base-300">Stadium</th>
+          <th class="bg-base-300">Tanggal dan Waktu</th>
+          <th class="bg-base-300">Action</th>
         </tr>
       </thead>
+
       <tbody>
-        <!-- row 1 -->
+        {% for data in info_pertandingan %}
+       
         <tr>
-          <th>1</th>
-          <td>Kapibara vs Wasera</td>
-          <td>Stadium Gelora Bung Karno</td>
-          <td>5 Juli 2023, 07.00 - 09.00</td>
-          <td><button type="button" class="btn btn-secondary">Mulai Rapat</button> </td>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
+          <td>{{data.3}}</td>
+          <td><a href="{% url 'mulai_rapat:rapat_pertandingan' data.0 %}"><button type="button" class="btn btn-primary">Mulai Rapat</button></a></td>
         </tr>
-        <!-- row 2 -->
-        <tr class="hover">
-          <th>2</th>
-          <td>Yumuhu vs Asada</td>
-          <td>Stadium Gelora Bung Karno</td>
-          <td>7 Juli 2023, 07.00 - 09.00</td>
-          <td><button type="button" class="btn btn-secondary">Mulai Rapat</button> </td>
-        </tr>
+        
+        {% endfor %}
       </tbody>
+      <thead>
+        <tr>
+          <th class="bg-base-300" colspan="4"></th>
+        </tr>
+      </thead>
     </table>
   </div>
-
+  
+</div>
+</div>
 {% endblock content %}

@@ -26,4 +26,5 @@ urlpatterns = [
     path('pembuatan_pertandingan/', include('pembuatan_pertandingan.urls')),
     path('peminjaman_stadium/', include('peminjaman_stadium.urls')),
     path('pembelian_tiket/', include('pembelian_tiket.urls')),
+    path('mulai_rapat/', include('mulai_rapat.urls')),
 ]
