@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn project_django.wsgi
+web: python manage.py migrate && gunicorn c11_uleague.wsgi
